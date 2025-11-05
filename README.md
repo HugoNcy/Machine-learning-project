@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚕 NYC Taxi Trip Prediction
+# NYC Taxi Trip Prediction
 ### Machine Learning for Urban Mobility Optimization
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
@@ -12,40 +12,40 @@
   <strong>Predicting taxi demand and trip duration using 2.8M+ NYC taxi trips</strong>
 </p>
 
-[📊 View Notebook](projet.ipynb) • [📈 Results](#-baseline-model-linear-regression) • [🚀 Future Work](#-future-improvements) • [📧 Contact](#-contact)
+[View Notebook](projet.ipynb) • [Results](#baseline-model-linear-regression) • [Future Work](#future-improvements) • [Contact](#author--contact)
 
 ---
 
-### 🎯 Quick Stats
+### Quick Stats
 
 | Metric | Value |
 |--------|-------|
-| 📊 **Trips Analyzed** | 2,859,135 |
-| 📅 **Time Period** | January 2024 |
-| 🗺️ **NYC Zones** | 265 |
-| 🌤️ **Weather Integration** | ✅ Yes |
-| 🤖 **Baseline MAE** | 8.26 minutes |
-| 📍 **Top Borough** | Manhattan (90%) |
+| **Trips Analyzed** | 2,859,135 |
+| **Time Period** | January 2024 |
+| **NYC Zones** | 265 |
+| **Weather Integration** | Yes |
+| **Baseline MAE** | 8.26 minutes |
+| **Top Borough** | Manhattan (90%) |
 
 </div>
 
 ---
 
-## 📊 Project Overview
+## Project Overview
 
 This project leverages **machine learning** to analyze millions of NYC Yellow Taxi trips and build predictive models for **urban mobility optimization**. Using January 2024 data from the NYC Taxi and Limousine Commission (TLC), we address two critical prediction tasks for improving taxi services in New York City.
 
-### 🎬 What This Project Does
+### What This Project Does
 
-- 🔮 **Predicts taxi demand** by zone and hour for optimal fleet positioning
-- ⏱️ **Estimates trip duration** for accurate ETAs and route planning
-- 🌦️ **Integrates weather data** to capture demand fluctuations
-- 📍 **Analyzes 265 NYC zones** across all 5 boroughs
-- 📈 **Provides actionable insights** for urban mobility optimization
+- **Predicts taxi demand** by zone and hour for optimal fleet positioning
+- **Estimates trip duration** for accurate ETAs and route planning
+- **Integrates weather data** to capture demand fluctuations
+- **Analyzes 265 NYC zones** across all 5 boroughs
+- **Provides actionable insights** for urban mobility optimization
 
 ---
 
-## 🎯 Business Case & Context
+## Business Case & Context
 
 ### Urban Mobility Challenge
 
@@ -57,7 +57,7 @@ New York City's yellow taxi system handles millions of trips monthly, creating s
 
 ### Two Core Prediction Tasks
 
-#### 1️⃣ Pickup Demand Forecasting
+#### Task 1: Pickup Demand Forecasting
 **Objective:** Predict the number of taxi pickups per zone per hour
 
 **Benefits:**
@@ -65,7 +65,7 @@ New York City's yellow taxi system handles millions of trips monthly, creating s
 - Enable proactive fleet management during peak hours
 - Reduce passenger wait times through better positioning
 
-#### 2️⃣ Trip Duration Prediction
+#### Task 2: Trip Duration Prediction
 **Objective:** Predict how long a trip will take given origin, destination, and context
 
 **Benefits:**
@@ -76,14 +76,14 @@ New York City's yellow taxi system handles millions of trips monthly, creating s
 ### Why Weather Matters
 
 Weather conditions significantly impact taxi demand and trip duration:
-- **Rain** → +15-25% pickups (people avoid walking/biking)
-- **Cold temperatures** → slower traffic, increased trip duration
-- **Precipitation** → affects driving speeds and route choices
-- **Extreme weather** → predictable demand spikes in certain zones
+- **Rain** increases pickups by 15-25% (people avoid walking/biking)
+- **Cold temperatures** slow traffic and increase trip duration
+- **Precipitation** affects driving speeds and route choices
+- **Extreme weather** creates predictable demand spikes in certain zones
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -132,7 +132,7 @@ Average fare: $18.45
 
 ---
 
-## 📁 Dataset Description
+## Dataset Description
 
 ### Primary Data Source
 **NYC Yellow Taxi Trip Records** (January 2024)
@@ -155,44 +155,14 @@ Average fare: $18.45
    - Includes zone names and geographic information
 
 2. **Weather Data (Meteostat API)**
-   - Average temperature (`tavg` in °C)
+   - Average temperature (`tavg` in Celsius)
    - Precipitation (`prcp` in mm)
    - Wind speed (`wspd` in km/h)
    - Atmospheric pressure (`pres` in hPa)
 
 ---
 
-## 🔧 Setup & Installation
-
-### Dependencies
-
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from datetime import datetime
-from meteostat import Daily, Point
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
-```
-
-### Installation
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn meteostat pyarrow
-```
-
-### Run the Project
-
-```bash
-jupyter notebook projet.ipynb
-```
-
----
-
-## 📥 Data Loading & Initial Exploration
+## Data Loading & Initial Exploration
 
 ### Code
 
@@ -200,21 +170,21 @@ jupyter notebook projet.ipynb
 # Load taxi trip data
 print("Loading taxi trip data...")
 taxi = pd.read_parquet("https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-01.parquet")
-print(f"✓ Loaded {len(taxi):,} taxi trips")
+print(f"Loaded {len(taxi):,} taxi trips")
 
 # Load geographical lookup
 print("Loading zone lookup data...")
 zones = pd.read_csv("https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv")
-print(f"✓ Loaded {len(zones)} taxi zones")
+print(f"Loaded {len(zones)} taxi zones")
 ```
 
 ### Results
 
 ```
 Loading taxi trip data...
-✓ Loaded 2,964,624 taxi trips
+Loaded 2,964,624 taxi trips
 Loading zone lookup data...
-✓ Loaded 265 taxi zones
+Loaded 265 taxi zones
 
 Initial Dataset Shape: 2,964,624 rows × 19 columns
 ```
@@ -229,7 +199,7 @@ Initial Dataset Shape: 2,964,624 rows × 19 columns
 
 ---
 
-## 🧹 Data Quality Assessment
+## Data Quality Assessment
 
 ### Missing Values Analysis
 
@@ -260,7 +230,7 @@ Negative trip distances: 0 trips
 
 ---
 
-## ⚙️ Feature Engineering
+## Feature Engineering
 
 ### Code
 
@@ -319,7 +289,7 @@ New features created:
 
 ---
 
-## 🗺️ Adding Geographical Data
+## Adding Geographical Data
 
 ### Code
 
@@ -346,13 +316,13 @@ taxi.rename(columns={'Borough': 'dropoff_borough', 'Zone': 'dropoff_zone'}, inpl
 ### Results
 
 ```
-✓ Geographic data merged successfully
+Geographic data merged successfully
 Dataset shape after merge: (2,859,135, 31)
 ```
 
 ---
 
-## 🌤️ Adding Weather Data
+## Adding Weather Data
 
 ### Code
 
@@ -380,21 +350,21 @@ taxi = taxi.merge(weather, on='pickup_date', how='left')
 | 2024-01-10 | 9.3 | - | - | 20.3 | 25.6 | - |
 
 **Weather variables:**
-- `tavg`: Average temperature (°C)
-- `tmin/tmax`: Min/Max temperature (°C)
+- `tavg`: Average temperature (Celsius)
+- `tmin/tmax`: Min/Max temperature (Celsius)
 - `prcp`: Precipitation (mm)
 - `wspd`: Wind speed (km/h)
 - `pres`: Atmospheric pressure (hPa)
 
 ---
 
-## 🎯 Key Highlights
+## Key Highlights
 
 <table>
 <tr>
 <td width="50%">
 
-### 📈 Data Scale
+### Data Scale
 - **2.8M+** taxi trips analyzed
 - **265** unique pickup zones
 - **31 days** of continuous data
@@ -403,7 +373,7 @@ taxi = taxi.merge(weather, on='pickup_date', how='left')
 </td>
 <td width="50%">
 
-### 🏆 Top Insights
+### Top Insights
 - **Manhattan dominates** with 90% of trips
 - **Evening peak** sees 200K+ trips
 - **Rain boosts demand** by 15-25%
@@ -414,7 +384,7 @@ taxi = taxi.merge(weather, on='pickup_date', how='left')
 <tr>
 <td width="50%">
 
-### 🤖 Model Performance
+### Model Performance
 - **Algorithm:** Linear Regression
 - **MAE:** 8.26 minutes
 - **RMSE:** 11.33 minutes
@@ -423,7 +393,7 @@ taxi = taxi.merge(weather, on='pickup_date', how='left')
 </td>
 <td width="50%">
 
-### 📍 Geographic Coverage
+### Geographic Coverage
 - **Manhattan:** 2.56M trips
 - **Queens:** 255K trips
 - **Brooklyn:** 22K trips
@@ -435,7 +405,7 @@ taxi = taxi.merge(weather, on='pickup_date', how='left')
 
 ---
 
-## 📊 Exploratory Data Analysis
+## Exploratory Data Analysis
 
 ### Trip Distribution by Borough
 
@@ -487,7 +457,7 @@ Average speed: 18.54 km/h
 
 ---
 
-## 🔗 Correlation Analysis
+## Correlation Analysis
 
 ### Code
 
@@ -506,11 +476,11 @@ plt.show()
 ### Key Correlations
 
 ```
-Trip distance ↔ Trip duration: 0.648 (strong positive)
-Trip distance ↔ Fare amount: 0.921 (very strong)
-Trip duration ↔ Fare amount: 0.744 (strong)
-Temperature ↔ Trip duration: -0.082 (weak negative)
-Precipitation ↔ Trip duration: 0.035 (very weak)
+Trip distance <-> Trip duration: 0.648 (strong positive)
+Trip distance <-> Fare amount: 0.921 (very strong)
+Trip duration <-> Fare amount: 0.744 (strong)
+Temperature <-> Trip duration: -0.082 (weak negative)
+Precipitation <-> Trip duration: 0.035 (very weak)
 ```
 
 **Interpretation:**
@@ -520,7 +490,7 @@ Precipitation ↔ Trip duration: 0.035 (very weak)
 
 ---
 
-## 📈 Data Visualizations
+## Data Visualizations
 
 ### 1. Hourly Demand by Borough
 
@@ -588,7 +558,7 @@ plt.show()
 
 ---
 
-## 🎯 Problem Formalization
+## Problem Formalization
 
 ### Task 1: Pickup Demand Forecasting
 
@@ -621,7 +591,7 @@ plt.show()
 
 ---
 
-## 🏷️ Dataset Preparation
+## Dataset Preparation
 
 ### Task 1: Pickup Demand Labels
 
@@ -642,7 +612,7 @@ demand_data['is_weekend'] = demand_data['dayofweek'].isin([5, 6]).astype(int)
 
 **Results:**
 ```
-✓ Demand dataset created: (72,581, 11)
+Demand dataset created: (72,581, 11)
 Date range: 2024-01-01 to 2024-01-31
 Number of unique zones: 256
 Average pickups per zone-hour: 39.26
@@ -674,7 +644,7 @@ Testing set: 571,827 trips (20.0%)
 
 ---
 
-## 🤖 Baseline Model: Linear Regression
+## Baseline Model: Linear Regression
 
 ### Model Training
 
@@ -711,9 +681,9 @@ Prediction error as % of mean: 55.1%
 **Analysis:**
 
 The baseline model shows:
-- ✅ **No overfitting** (training and test metrics are identical)
-- ❌ **Very low R²** (~0.003) → model explains almost none of the variance
-- ⚠️ **MAE of 8.26 min** → acceptable error magnitude but poor predictive power
+- **No overfitting** (training and test metrics are identical)
+- **Very low R²** (~0.003) indicating the model explains almost none of the variance
+- **MAE of 8.26 min** showing acceptable error magnitude but poor predictive power
 
 **Why the low R²?**
 1. **Linear assumption** fails for complex urban mobility patterns
@@ -734,18 +704,18 @@ The baseline model shows:
 
 ---
 
-## 🔄 Project Pipeline
+## Project Pipeline
 
 ```mermaid
 graph LR
-    A[📥 Data Loading] --> B[🧹 Data Cleaning]
-    B --> C[⚙️ Feature Engineering]
-    C --> D[🗺️ Add Geography]
-    D --> E[🌤️ Add Weather]
-    E --> F[📊 EDA]
-    F --> G[🤖 Model Training]
-    G --> H[📈 Evaluation]
-    H --> I[🚀 Deployment]
+    A[Data Loading] --> B[Data Cleaning]
+    B --> C[Feature Engineering]
+    C --> D[Add Geography]
+    D --> E[Add Weather]
+    E --> F[EDA]
+    F --> G[Model Training]
+    G --> H[Evaluation]
+    H --> I[Deployment]
 
     style A fill:#e1f5ff
     style B fill:#fff4e6
@@ -762,19 +732,19 @@ graph LR
 
 | Stage | Description | Output |
 |-------|-------------|--------|
-| 📥 **Data Loading** | Download 2.9M trips from NYC TLC | Raw dataset |
-| 🧹 **Data Cleaning** | Remove outliers (3.56%) | 2.8M clean trips |
-| ⚙️ **Feature Engineering** | Create temporal features | +6 new features |
-| 🗺️ **Add Geography** | Merge zone/borough data | +4 location fields |
-| 🌤️ **Add Weather** | Integrate Meteostat API | +6 weather variables |
-| 📊 **EDA** | Analyze patterns & correlations | Insights & visualizations |
-| 🤖 **Model Training** | Train Linear Regression baseline | Trained model |
-| 📈 **Evaluation** | Calculate MAE, RMSE, R² | Performance metrics |
-| 🚀 **Deployment** | (Future) API deployment | Production-ready model |
+| **Data Loading** | Download 2.9M trips from NYC TLC | Raw dataset |
+| **Data Cleaning** | Remove outliers (3.56%) | 2.8M clean trips |
+| **Feature Engineering** | Create temporal features | +6 new features |
+| **Add Geography** | Merge zone/borough data | +4 location fields |
+| **Add Weather** | Integrate Meteostat API | +6 weather variables |
+| **EDA** | Analyze patterns & correlations | Insights & visualizations |
+| **Model Training** | Train Linear Regression baseline | Trained model |
+| **Evaluation** | Calculate MAE, RMSE, R² | Performance metrics |
+| **Deployment** | (Future) API deployment | Production-ready model |
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 ### Model Enhancements
 
@@ -814,7 +784,7 @@ graph LR
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 <div align="center">
 
@@ -842,7 +812,7 @@ graph LR
 
 ---
 
-## 📦 Project Files
+## Project Files
 
 ```
 Machine-learning-project/
@@ -855,7 +825,7 @@ Machine-learning-project/
 
 ---
 
-## 🔧 Requirements
+## Requirements
 
 ```txt
 pandas>=1.5.0
@@ -875,14 +845,14 @@ pip install -r requirements.txt
 
 ---
 
-## 🎓 Key Takeaways
+## Key Takeaways
 
 ### Data Insights
 
 1. **Manhattan dominates** taxi demand (90% of all trips)
 2. **Evening peak** (5-9 PM) has highest demand
 3. **Weather matters:** Rain increases demand by 10-20%
-4. **Distance is king:** Strongest predictor for duration and fare
+4. **Distance is key:** Strongest predictor for duration and fare
 5. **Weekday patterns:** Tuesday/Wednesday busiest, Sunday slowest
 
 ### Model Learnings
@@ -903,19 +873,19 @@ pip install -r requirements.txt
 
 ---
 
-## 🔗 References & Data Sources
+## References & Data Sources
 
 | Resource | Description | Link |
 |----------|-------------|------|
-| 🚕 **NYC TLC Data** | Official trip record data | [Visit](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) |
-| 🗺️ **Taxi Zones** | Geographic lookup table | [CSV](https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv) |
-| 🌤️ **Meteostat API** | Weather data provider | [Docs](https://meteostat.net/en/) |
-| 🤖 **scikit-learn** | Machine learning library | [Docs](https://scikit-learn.org/) |
-| 📊 **NYC Open Data** | Additional city datasets | [Portal](https://opendata.cityofnewyork.us/) |
+| **NYC TLC Data** | Official trip record data | [Visit](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) |
+| **Taxi Zones** | Geographic lookup table | [CSV](https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv) |
+| **Meteostat API** | Weather data provider | [Docs](https://meteostat.net/en/) |
+| **scikit-learn** | Machine learning library | [Docs](https://scikit-learn.org/) |
+| **NYC Open Data** | Additional city datasets | [Portal](https://opendata.cityofnewyork.us/) |
 
 ---
 
-## 👤 Author & Contact
+## Author & Contact
 
 <div align="center">
 
@@ -925,13 +895,13 @@ pip install -r requirements.txt
 [![Project](https://img.shields.io/badge/Project-Machine--Learning-blue?style=for-the-badge&logo=github)](https://github.com/HugoNcy/Machine-learning-project)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com)
 
-**💬 Open to collaboration and feedback!**
+**Open to collaboration and feedback**
 
 </div>
 
 ---
 
-## 📄 License & Attribution
+## License & Attribution
 
 - **Data Source:** NYC Taxi and Limousine Commission (TLC) - Public Domain
 - **Weather Data:** Meteostat - Open Source
@@ -942,7 +912,7 @@ pip install -r requirements.txt
 
 <div align="center">
 
-## ⭐ Project Stats
+## Project Stats
 
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-November%202024-blue?style=flat-square)
 ![Dataset](https://img.shields.io/badge/Dataset-January%202024-green?style=flat-square)
@@ -951,14 +921,14 @@ pip install -r requirements.txt
 
 ---
 
-### 🚀 Next Steps: Random Forest & XGBoost Implementation
+### Next Steps: Random Forest & XGBoost Implementation
 
-**If you found this project helpful, consider giving it a ⭐!**
+**If you found this project helpful, consider giving it a star**
 
 ---
 
-Made with ❤️ and ☕ by [Hugo Nancy](https://github.com/HugoNcy)
+Made by [Hugo Nancy](https://github.com/HugoNcy)
 
-© 2024 Machine Learning Project - NYC Taxi Trip Prediction
+Copyright 2024 Machine Learning Project - NYC Taxi Trip Prediction
 
 </div>
