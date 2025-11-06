@@ -33,7 +33,7 @@
 
 ## Project Overview
 
-This project leverages **machine learning** to analyze millions of NYC Yellow Taxi trips and build predictive models for **urban mobility optimization**. Using January 2024 data from the NYC Taxi and Limousine Commission (TLC), we address two critical prediction tasks for improving taxi services in New York City.
+This project leverages machine learning to analyze millions of NYC Yellow Taxi trips and build predictive models for **urban mobility optimization**. Using January 2024 data from the NYC Taxi and Limousine Commission (TLC), we address two critical prediction tasks for improving taxi services in New York City.
 
 ### What This Project Does
 
