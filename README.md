@@ -125,49 +125,7 @@ Machine-learning-project/
 
 ---
 
-## Quick Start
 
-### Installation
-```bash
-git clone https://github.com/HugoNcy/Machine-learning-project.git
-cd Machine-learning-project
-pip install pandas numpy matplotlib seaborn scikit-learn xgboost meteostat pyarrow jupyter
-```
-
-### Run
-```bash
-jupyter notebook NYC_Taxi_Final_Project.ipynb
-```
-
----
-
-## Requirements
-```
-pandas>=1.5.0
-numpy>=1.23.0
-matplotlib>=3.6.0
-seaborn>=0.12.0
-scikit-learn>=1.2.0
-xgboost>=1.7.0
-meteostat>=1.6.0
-pyarrow>=10.0.0
-```
-
----
-
-## References
-
-- NYC TLC Trip Data: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-- Meteostat Weather API: https://meteostat.net/
-- XGBoost Documentation: https://xgboost.readthedocs.io/
-- Chen & Guestrin (2016): https://doi.org/10.1145/2939672.2939785
-
----
-
-## Author
-
-**Hugo Nancy**  
-Master's Student in Data Science & AI - ESILV
 
 [![GitHub](https://img.shields.io/badge/GitHub-HugoNcy-181717?style=flat-square&logo=github)](https://github.com/HugoNcy)
 
